@@ -45,7 +45,9 @@ namespace IceCreamShop{
             get { return type; }
             set { type = value; }
         }
-        public Topping() { }
+        public Topping() {
+            type = "";
+        }
         public Topping(string type) { this.type = type; }
         //ToString
         public override string ToString()
