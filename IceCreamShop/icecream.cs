@@ -19,7 +19,11 @@ namespace IceCreamShop{
             get { return quantity; }
             set { quantity = value; }
         }
-        public Flavour() { }
+        public Flavour() {
+            type = "";
+            premium = false;
+            quantity = 0;
+         }
         public Flavour(string type, bool premium, int quantity)
         {
             this.type = type;
@@ -34,5 +38,28 @@ namespace IceCreamShop{
     public class Topping
     {
 
+    }
+    // Ice Cream class
+    public class IceCream{
+        private string option;
+        public string Option{
+            get { return option; }
+            set { option = value; }
+        }
+        private int scoops;
+        public int Scoops{
+            get { return scoops; }
+            set { scoops = value; }
+        }
+        private List<Flavour> flavours;
+        public List<Flavour> Flavours{
+            get { return flavours; }
+            set { flavours = value; }
+        }
+        private List<Topping> toppings;
+        public List<Topping> Toppings{
+            get { return toppings; }
+            set { toppings = value;}
+        }
     }
 }
