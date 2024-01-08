@@ -19,6 +19,7 @@ namespace IceCreamShop{
             get { return quantity; }
             set { quantity = value; }
         }
+        //Setting default values
         public Flavour() {
             type = "";
             premium = false;
@@ -35,8 +36,22 @@ namespace IceCreamShop{
             return "Type: " + Type + " Premium: " + Premium + " Quantity: " + Quantity; 
         }
     }
+    //Class Topping 
     public class Topping
     {
+        private string type;
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+        public Topping() { }
+        public Topping(string type) { this.type = type; }
+        //ToString
+        public override string ToString()
+        {
+            return "Type: " + Type;
+        }
 
     }
     // Ice Cream class
