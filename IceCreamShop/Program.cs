@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace IceCreamShop{
-    internal class Program{
+    class Program{
         static void Main(string[] args){
             Console.WriteLine("Yes");
         }
