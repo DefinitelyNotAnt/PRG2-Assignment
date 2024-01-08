@@ -1,5 +1,4 @@
-namespace IceCreamShop.obj
-{
+namespace IceCreamShop{
     public class IceCream
     {
         private string name;
