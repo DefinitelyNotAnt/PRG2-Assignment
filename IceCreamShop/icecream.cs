@@ -40,7 +40,8 @@ namespace IceCreamShop{
 
     }
     // Ice Cream class
-    public class IceCream{
+    public abstract class IceCream{
+        // Setting attributes
         private string option;
         public string Option{
             get { return option; }
@@ -61,5 +62,77 @@ namespace IceCreamShop{
             get { return toppings; }
             set { toppings = value;}
         }
+        // Empty constructor
+        public IceCream(){
+            // Default to empty cup
+            option = "cup";
+            scoops = 0;
+            flavours = new List<Flavour>();
+            toppings = new List<Topping>();
+        }
+        // Main constructor
+        public IceCream(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings){
+            option = Option;
+            scoops = Scoops;
+            flavours = Flavours;
+            toppings = Toppings;
+        }
+        // Abstract method CalculatePrice()
+        public abstract double CalculatePrice();
+        // ToString()
+        public override string ToString()
+        {
+            string returnStr = "Option: "+option+"\nScoops: "+Convert.ToString(scoops)+"\nFlavours: ";
+            foreach (Flavour flavour in flavours){
+                // Lists out all the flavours stored in the List
+                returnStr += "\n"+flavour.Type+$" x{flavour.Quantity}";
+            }
+            returnStr += "\nToppings: ";
+            foreach (Topping topping in toppings){
+                // Lists out all the toppings in the List
+                returnStr += "\n"+topping.Type;
+            }
+            return returnStr;
+        }
+    }
+    // Class Order
+    public class Order{
+        // Setting Attributes
+        private int id;
+        public int Id{
+            get { return id; }
+            set { id = value; }
+        }
+        private DateTime timeReceived;
+        public DateTime TimeReceived{
+            get { return timeReceived; }
+            set { timeReceived = value; }
+        }
+        private DateTime? timeFulfilled;
+        public DateTime? TimeFulfilled{
+            get { return timeFulfilled; }
+            set { timeFulfilled = value; }
+        }
+        private List<IceCream> iceCreamList;
+        public List<IceCream> IceCreamList{
+            get { return iceCreamList; }
+            set { iceCreamList = value; }
+        }
+        // Empty Contructor
+        public Order(){
+            id = 0;
+            timeReceived = DateTime.Now;
+            timeFulfilled = null;
+            iceCreamList = new List<IceCream>();
+        }
+        // Regular Constructor based on chart (Order(int, DateTime))
+        public Order(int Id, DateTime TimeReceived){
+            id = Id;
+            timeReceived = TimeReceived;
+            timeFulfilled = null;
+            iceCreamList = new List<IceCream>();
+        }
+        // Editing Ice Creams in order
+        // Modifying ice cream
     }
 }
