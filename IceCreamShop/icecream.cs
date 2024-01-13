@@ -154,9 +154,17 @@ namespace IceCreamShop{
     //Cone
     public class Cone : IceCream
     {
+        private bool dipped;
+        public bool Dipped
+        {
+            get { return dipped; }
+            set { dipped = value; }
+        }
         public Cone() { }
-        public Cup(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings) : base(Option, Scoops, Flavours, Toppings)
-        { }
+        public Cone(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings,bool Dipped) : base(Option, Scoops, Flavours, Toppings)
+        {
+            this.Dipped = Dipped;
+        }
         public override double CalculatePrice()
         {
             double basePrice = 0;
@@ -186,9 +194,16 @@ namespace IceCreamShop{
     //Waffle
     public class Waffle : IceCream
     {
-        public Cup() { }
-        public Cup(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings) : base(Option, Scoops, Flavours, Toppings)
-        { }
+        private string waffleFlavour;
+        public string WaffleFlavour
+        {
+            get { return waffleFlavour; } set { waffleFlavour = value;}
+        }
+        public Waffle() { }
+        public Waffle(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings, string WaffleFlavour) : base(Option, Scoops, Flavours, Toppings)
+        {
+            this.WaffleFlavour= WaffleFlavour;
+        }
         public override double CalculatePrice()
         {
             double basePrice = 0;
