@@ -1,3 +1,5 @@
+using static System.Formats.Asn1.AsnWriter;
+
 namespace IceCreamShop{
     //Class Flavour
     public class Flavour
@@ -112,7 +114,107 @@ namespace IceCreamShop{
             return returnStr;
         }
     }
-    //abcde
+    //Cup
+    public class Cup : IceCream
+    {
+        public Cup() { }
+        public Cup(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings) : base(Option, Scoops, Flavours, Toppings)
+        { }
+        public override double CalculatePrice()
+        {
+            double basePrice = 0;
+            string[] normal = {""};
+            foreach (string  flavour in Flavours)
+            {
+                if (flavour.
+            }
+
+            if (Scoops == 1)
+            {
+                basePrice = 4.00;
+            }
+            else if (Scoops == 2)
+            {
+                basePrice = 5.50;
+            }
+            else if (Scoops == 3)
+            {
+                basePrice = 6.50;
+            }
+
+            double toppingsPrice = Toppings.Count * 1; // Each topping costs $1
+
+            return basePrice + toppingsPrice;
+        }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+    }
+    //Cone
+    public class Cone : IceCream
+    {
+        public Cone() { }
+        public Cup(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings) : base(Option, Scoops, Flavours, Toppings)
+        { }
+        public override double CalculatePrice()
+        {
+            double basePrice = 0;
+
+            if (Scoops == 1)
+            {
+                basePrice = 4.00;
+            }
+            else if (Scoops == 2)
+            {
+                basePrice = 5.50;
+            }
+            else if (Scoops == 3)
+            {
+                basePrice = 6.50;
+            }
+
+            double toppingsPrice = Toppings.Count * 1; // Each topping costs $1
+
+            return basePrice + toppingsPrice;
+        }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+    }
+    //Waffle
+    public class Waffle : IceCream
+    {
+        public Cup() { }
+        public Cup(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings) : base(Option, Scoops, Flavours, Toppings)
+        { }
+        public override double CalculatePrice()
+        {
+            double basePrice = 0;
+
+            if (Scoops == 1)
+            {
+                basePrice = 4.00;
+            }
+            else if (Scoops == 2)
+            {
+                basePrice = 5.50;
+            }
+            else if (Scoops == 3)
+            {
+                basePrice = 6.50;
+            }
+
+            double toppingsPrice = Toppings.Count * 1; // Each topping costs $1
+
+            return basePrice + toppingsPrice;
+        }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+    }
 
 
 

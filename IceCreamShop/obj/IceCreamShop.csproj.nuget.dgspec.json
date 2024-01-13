@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\temp vs\\IceCreamShop\\IceCreamShop.csproj": {}
+    "C:\\Users\\User\\Source\\Repos\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\temp vs\\IceCreamShop\\IceCreamShop.csproj": {
+    "C:\\Users\\User\\Source\\Repos\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\temp vs\\IceCreamShop\\IceCreamShop.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Source\\Repos\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
         "projectName": "IceCreamShop",
-        "projectPath": "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\temp vs\\IceCreamShop\\IceCreamShop.csproj",
+        "projectPath": "C:\\Users\\User\\Source\\Repos\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\temp vs\\IceCreamShop\\obj\\",
+        "outputPath": "C:\\Users\\User\\Source\\Repos\\PRG2-Assignment\\IceCreamShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
