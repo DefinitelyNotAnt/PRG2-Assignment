@@ -8,23 +8,23 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\anson\\.nuget\\packages\\": {},
+    "C:\\Users\\Anson\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anson\\OneDrive\\Pictures\\Documents\\GitHub\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
+      "projectUniqueName": "C:\\Users\\Anson\\Source\\Repos\\DefinitelyNotAnt\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
       "projectName": "IceCreamShop",
-      "projectPath": "C:\\Users\\anson\\OneDrive\\Pictures\\Documents\\GitHub\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
-      "packagesPath": "C:\\Users\\anson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anson\\OneDrive\\Pictures\\Documents\\GitHub\\PRG2-Assignment\\IceCreamShop\\obj\\",
+      "projectPath": "C:\\Users\\Anson\\Source\\Repos\\DefinitelyNotAnt\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
+      "packagesPath": "C:\\Users\\Anson\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Anson\\Source\\Repos\\DefinitelyNotAnt\\PRG2-Assignment\\IceCreamShop\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\anson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Anson\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -61,30 +61,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[7.0.14, 7.0.14]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

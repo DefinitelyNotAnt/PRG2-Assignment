@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F5WUACTuhG+ruuEHqokdhYfX196P9lFdZCO7LkPjdViReTMVENEz2Da5opfJBeahVjRDcmjfm6FGHs0ADNFgsw==",
+  "dgSpecHash": "ryljpLP3G4hWD5ykixT1Dq8nWS2BEslsuCZzfNQp/DcHFSq0RWXSpFiFNZ1l7DmalccikppJkto1WdKkegHpSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anson\\OneDrive\\Pictures\\Documents\\GitHub\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\anson\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
-    "C:\\Users\\anson\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512",
-    "C:\\Users\\anson\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
-    "C:\\Users\\anson\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.14\\microsoft.netcore.app.host.win-x64.7.0.14.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Anson\\Source\\Repos\\DefinitelyNotAnt\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

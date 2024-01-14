@@ -12,3 +12,17 @@ C:\Users\Anson\OneDrive\Documents\GitHub\PRG2-Assignment\IceCreamShop\obj\Debug\
 C:\Users\Anson\OneDrive\Documents\GitHub\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\IceCreamShop.pdb
 C:\Users\Anson\OneDrive\Documents\GitHub\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\IceCreamShop.genruntimeconfig.cache
 C:\Users\Anson\OneDrive\Documents\GitHub\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\ref\IceCreamShop.dll
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\IceCreamShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\IceCreamShop.AssemblyInfoInputs.cache
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\IceCreamShop.AssemblyInfo.cs
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\IceCreamShop.csproj.CoreCompileInputs.cache
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\IceCreamShop.dll
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\refint\IceCreamShop.dll
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\IceCreamShop.pdb
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\bin\Debug\net7.0\IceCreamShop.exe
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\bin\Debug\net7.0\IceCreamShop.deps.json
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\bin\Debug\net7.0\IceCreamShop.runtimeconfig.json
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\bin\Debug\net7.0\IceCreamShop.dll
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\bin\Debug\net7.0\IceCreamShop.pdb
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\IceCreamShop.genruntimeconfig.cache
+C:\Users\Anson\Source\Repos\DefinitelyNotAnt\PRG2-Assignment\IceCreamShop\obj\Debug\net7.0\ref\IceCreamShop.dll

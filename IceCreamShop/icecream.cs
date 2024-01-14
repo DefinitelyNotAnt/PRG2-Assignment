@@ -118,31 +118,32 @@ namespace IceCreamShop{
     public class Cup : IceCream
     {
         public Cup() {
-            option = "Cup";
-            scoops = 0;
-            flavours = new List<Flavour>;
+            this.Option = "Cup";
+            this.Scoops = 0;
+            this.Flavours = new List<Flavour>();
         }
         // Why does the table require another input for option ;/
         public Cup(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings) : base(Option, Scoops, Flavours, Toppings)
         {
-            option = Option;
+            this.Option = Option;
         }
         public override double CalculatePrice()
         {
             double basePrice = 0;
             string[] normal = {""};
             // Assuming you can't order only toppings
-            if (this.scoops <= 0){
+            if (this.Scoops <= 0){
                 Console.WriteLine("Cup cannot be empty");
+                return 0;
             }
             else{
                 foreach (Flavour flavour in Flavours){
-                    if (flavour.premium){
+                    if (flavour.Premium){
                         // +$2 per premium
                         basePrice += 2;
                     }
                 }
-                switch (scoops){
+                switch (this.Scoops){
                     case 1:
                         basePrice += 4;
                         break;
@@ -178,10 +179,10 @@ namespace IceCreamShop{
             set { dipped = value; }
         }
         public Cone() {
-            option = "Cone";
-            scoops = 0;
-            flavours = new List<Flavour>();
-            toppings = new List<Toppings>();
+            this.Option = "Cone";
+            this.Scoops = 0;
+            this.Flavours = new List<Flavour>();
+            this.Toppings = new List<Topping>();
             dipped = false;
          }
         public Cone(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings,bool Dipped) : base(Option, Scoops, Flavours, Toppings)
@@ -224,10 +225,10 @@ namespace IceCreamShop{
             set { waffleFlavour = value; }
         }
         public Waffle() {
-            option = "Waffle";
-            scoops = 0;
-            flavours = new List<Flavour>();
-            toppings = new List<Toppings>();
+            this.Option = "Waffle";
+            this.Scoops = 0;
+            this.Flavours = new List<Flavour>();
+            this.Toppings = new List<Topping>();
             waffleFlavour = "None";
          }
         public Waffle(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings, string WaffleFlavour) : base(Option, Scoops, Flavours, Toppings)
