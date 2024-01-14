@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "AzHMNt9UW6Pgj6KFZ40NDwkK0DGQwhGBDjf+tVdEbyA50LD4sM/+GzIYjSLdZjZn4nJB5LDJeo6oyDp+kSB/SA==",
+  "dgSpecHash": "F5WUACTuhG+ruuEHqokdhYfX196P9lFdZCO7LkPjdViReTMVENEz2Da5opfJBeahVjRDcmjfm6FGHs0ADNFgsw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Source\\Repos\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\anson\\OneDrive\\Pictures\\Documents\\GitHub\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anson\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\anson\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\anson\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\anson\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.14\\microsoft.netcore.app.host.win-x64.7.0.14.nupkg.sha512"
+  ],
   "logs": []
 }

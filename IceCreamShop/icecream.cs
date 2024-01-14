@@ -117,34 +117,51 @@ namespace IceCreamShop{
     //Cup
     public class Cup : IceCream
     {
-        public Cup() { }
+        public Cup() {
+            option = "Cup";
+            scoops = 0;
+            flavours = new List<Flavour>;
+        }
+        // Why does the table require another input for option ;/
         public Cup(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings) : base(Option, Scoops, Flavours, Toppings)
-        { }
+        {
+            option = Option;
+        }
         public override double CalculatePrice()
         {
             double basePrice = 0;
             string[] normal = {""};
-            foreach (string  flavour in Flavours)
-            {
-                if (flavour.
+            // Assuming you can't order only toppings
+            if (this.scoops <= 0){
+                Console.WriteLine("Cup cannot be empty");
             }
+            else{
+                foreach (Flavour flavour in Flavours){
+                    if (flavour.premium){
+                        // +$2 per premium
+                        basePrice += 2;
+                    }
+                }
+                switch (scoops){
+                    case 1:
+                        basePrice += 4;
+                        break;
+                    case 2:
+                        basePrice += 5.5;
+                        break;
+                    case 3:
+                        basePrice += 6.5;
+                        break;
+                    default:
+                    // In case more than 4 scoops
+                        Console.WriteLine("Cannot have more than 3 scoops.");
+                        basePrice = 0;
+                        return basePrice;
+                }
+                double toppingsPrice = Toppings.Count * 1; // Each topping costs $1
 
-            if (Scoops == 1)
-            {
-                basePrice = 4.00;
+                return basePrice + toppingsPrice;
             }
-            else if (Scoops == 2)
-            {
-                basePrice = 5.50;
-            }
-            else if (Scoops == 3)
-            {
-                basePrice = 6.50;
-            }
-
-            double toppingsPrice = Toppings.Count * 1; // Each topping costs $1
-
-            return basePrice + toppingsPrice;
         }
         public override string ToString()
         {
@@ -160,7 +177,13 @@ namespace IceCreamShop{
             get { return dipped; }
             set { dipped = value; }
         }
-        public Cone() { }
+        public Cone() {
+            option = "Cone";
+            scoops = 0;
+            flavours = new List<Flavour>();
+            toppings = new List<Toppings>();
+            dipped = false;
+         }
         public Cone(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings,bool Dipped) : base(Option, Scoops, Flavours, Toppings)
         {
             this.Dipped = Dipped;
@@ -181,7 +204,7 @@ namespace IceCreamShop{
             {
                 basePrice = 6.50;
             }
-
+            // choco dipped cone costs $2 (Implement yourself)
             double toppingsPrice = Toppings.Count * 1; // Each topping costs $1
 
             return basePrice + toppingsPrice;
@@ -197,9 +220,16 @@ namespace IceCreamShop{
         private string waffleFlavour;
         public string WaffleFlavour
         {
-            get { return waffleFlavour; } set { waffleFlavour = value;}
+            get { return waffleFlavour; } 
+            set { waffleFlavour = value; }
         }
-        public Waffle() { }
+        public Waffle() {
+            option = "Waffle";
+            scoops = 0;
+            flavours = new List<Flavour>();
+            toppings = new List<Toppings>();
+            waffleFlavour = "None";
+         }
         public Waffle(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings, string WaffleFlavour) : base(Option, Scoops, Flavours, Toppings)
         {
             this.WaffleFlavour= WaffleFlavour;
@@ -220,7 +250,7 @@ namespace IceCreamShop{
             {
                 basePrice = 6.50;
             }
-
+            // Implement +$3 for flavoured waffle yourself
             double toppingsPrice = Toppings.Count * 1; // Each topping costs $1
 
             return basePrice + toppingsPrice;
