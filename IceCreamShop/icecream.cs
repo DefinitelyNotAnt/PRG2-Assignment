@@ -1,6 +1,68 @@
+using System.Security.Cryptography.X509Certificates;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace IceCreamShop{
+    //Class Customer
+    public class Customer
+    {
+
+    }
+    //Class PointCard
+    public class PointCard
+    {
+        private int points;
+        private int punchCard;
+        private string tier;
+        public int Points
+        {
+            get { return points; }
+            set { points = value; }
+        }
+        public int PunchCard
+        {
+            get { return punchCard; }
+            set { punchCard = value; }
+        }
+        public string Tier
+        {
+            get { return tier; }
+            set { tier = value; }
+        }
+        public PointCard()
+        {
+            points = 0;
+        }
+        public PointCard(int points, int punchCard)
+        {
+            Points = points;
+            PunchCard = punchCard;
+        }
+        public void AddPoints(int point)
+        {
+            Points += point;
+        }
+        public void RedeemPoints(int deduct)
+        {
+            Points -= deduct;
+        }
+        public void Punch()
+        {
+            if (Points < 10) 
+            {
+                PunchCard++;             
+            }
+            else
+            {
+                Console.WriteLine("Free Ice Cream!");
+                PunchCard = 0;
+            }
+        }
+        public override string ToString()
+        {
+            return "Points: " + Points + "\tPunch Card Tally: " + PunchCard + "\tTier: "+Tier;
+        }
+    }
+
     //Class Flavour
     public class Flavour
     {
