@@ -367,5 +367,9 @@ namespace IceCreamShop{
         }
         // Editing Ice Creams in order
         // Modifying ice cream
+        public void ModifyIceCream(int Index)
+        {
+
+        }
     }
 }
