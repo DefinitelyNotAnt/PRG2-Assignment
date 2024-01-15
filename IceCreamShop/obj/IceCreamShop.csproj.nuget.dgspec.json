@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anson\\Source\\Repos\\DefinitelyNotAnt\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj": {}
+    "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\New folder\\IceCreamShop\\IceCreamShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anson\\Source\\Repos\\DefinitelyNotAnt\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj": {
+    "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\New folder\\IceCreamShop\\IceCreamShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anson\\Source\\Repos\\DefinitelyNotAnt\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\New folder\\IceCreamShop\\IceCreamShop.csproj",
         "projectName": "IceCreamShop",
-        "projectPath": "C:\\Users\\Anson\\Source\\Repos\\DefinitelyNotAnt\\PRG2-Assignment\\IceCreamShop\\IceCreamShop.csproj",
-        "packagesPath": "C:\\Users\\Anson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anson\\Source\\Repos\\DefinitelyNotAnt\\PRG2-Assignment\\IceCreamShop\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\New folder\\IceCreamShop\\IceCreamShop.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\PROGRAMMING II\\Assignment\\New folder\\IceCreamShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Anson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

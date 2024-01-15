@@ -205,10 +205,12 @@ namespace IceCreamShop{
             {
                 basePrice = 6.50;
             }
-            // choco dipped cone costs $2 (Implement yourself)
-            double toppingsPrice = Toppings.Count * 1; // Each topping costs $1
-
-            return basePrice + toppingsPrice;
+            if (dipped)
+            {
+                basePrice += 2;
+            }
+            basePrice += Toppings.Count * 1;
+            return basePrice;
         }
         public override string ToString()
         {
@@ -241,19 +243,22 @@ namespace IceCreamShop{
 
             if (Scoops == 1)
             {
-                basePrice = 4.00;
+                basePrice = 7.00;
             }
             else if (Scoops == 2)
             {
-                basePrice = 5.50;
+                basePrice = 8.50;
             }
             else if (Scoops == 3)
             {
-                basePrice = 6.50;
+                basePrice = 9.50;
             }
-            // Implement +$3 for flavoured waffle yourself
+            // Implement +$3 for flavoured waffle
+            if (WaffleFlavour != "None")
+            {
+                basePrice += 3;
+            }
             double toppingsPrice = Toppings.Count * 1; // Each topping costs $1
-
             return basePrice + toppingsPrice;
         }
         public override string ToString()
@@ -261,10 +266,6 @@ namespace IceCreamShop{
             return base.ToString();
         }
     }
-
-
-
-
     // Class Order
     public class Order{
         // Setting Attributes
