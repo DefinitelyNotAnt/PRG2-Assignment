@@ -369,7 +369,119 @@ namespace IceCreamShop{
         // Modifying ice cream
         public void ModifyIceCream(int Index)
         {
-
+            if (Index <=0 || Index > IceCreamList.Count)
+            {
+                Console.WriteLine("Not a valid selection.");
+            }
+            else
+            {
+                try
+                {
+                    IceCream iceCream = iceCreamList[Index-1];
+                    Console.Write("============================\n" +
+                                  "===== Modify Ice Cream =====\n" +
+                                  "============================\n" +
+                                  "Options:\n" +
+                                  "[1] Change ice cream option\n" +
+                                  "[2] Change number of scoops\n" +
+                                  "[3] Change flavours\n" +
+                                  "[4] Change toppings\n" +
+                                  "[0] Exit\n" +
+                                  "Enter option: ");
+                    string userInput = Console.ReadLine();
+                    switch (userInput)
+                    {
+                        case "1":
+                            Console.WriteLine($"Current option is: {iceCream.Option}.");
+                            Console.Write("============================\n" +
+                                          "======= Change Option ======\n" +
+                                          "============================\n" +
+                                          "Options:\n" +
+                                          "[1] Cup\n" +
+                                          "[2] Cone\n" +
+                                          "[3] Waffle\n" +
+                                          "[0] Exit\n" +
+                                          "Enter option: ");
+                            userInput = Console.ReadLine();
+                            switch (userInput)
+                            {
+                                case "1":
+                                    if (iceCream.Option == "Cup")
+                                    {
+                                        Console.WriteLine("Option is already cup.");
+                                    }
+                                    else
+                                    {
+                                        iceCream.Option = "Cup";
+                                        Console.WriteLine("Option changed to Cup.");
+                                    }
+                                    Cup cup = iceCream;
+                                    iceCreamList[Index-1] = cup;
+                                    break;
+                                case "2":
+                                    if (iceCream.Option == "Cone")
+                                    {
+                                        Console.WriteLine("Option is already cone.");
+                                    }
+                                    else
+                                    {
+                                        iceCream.Option = "Cone";
+                                        Console.WriteLine("Option changed to Cone.");
+                                    }
+                                    Cone cone = iceCream;
+                                    Console.Write("Do you want regular cone or chocolate-dipped cone? [Y/N]: ");
+                                    userInput = Console.ReadLine().ToUpper();
+                                    switch (userInput)
+                                    {
+                                        case "Y":
+                                            cone.Dipped = true;
+                                            break;         
+                                        case "N":
+                                            cone.Dipped = false;
+                                            break;
+                                        default:
+                                            Console.WriteLine("No change will be made.");
+                                    }
+                                    Console.WriteLine($"Your cone is now {cone.Dipped}.");
+                                    break;
+                            }
+                            break;
+                        case "2":
+                            Console.WriteLine("How many scoops do you want?: ");
+                            userInput = Console.ReadLine();
+                            switch (userInput)
+                            {
+                                case "1":
+                                    iceCream.Scoops = 1;
+                                    Console.WriteLine("Scoop number changed to 1.");
+                                    break;
+                                case "2":
+                                    iceCream.Scoops = 2;
+                                    Console.WriteLine("Scoop number changed to 2.");
+                                    break;
+                                case "3":
+                                    iceCream.Scoops = 3;
+                                    Console.WriteLine("Scoop number changed to 3.");
+                                    break;
+                                default:
+                                    Console.WriteLine("You can only have 1, 2, or 3 scoops.");
+                                    break;
+                            }
+                            break;
+                        case "3":
+                            Console.WriteLine("");
+                            break;
+                        case "4":
+                            break;
+                        case "0":
+                            break;
+                    }
+                }
+                catch (Exception e) 
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            }
         }
     }
 }
