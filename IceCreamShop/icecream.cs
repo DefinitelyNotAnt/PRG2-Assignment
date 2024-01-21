@@ -5,7 +5,42 @@ namespace IceCreamShop{
     //Class Customer
     public class Customer
     {
-
+        private string name;
+        private int memberid;
+        private DateTime dob;
+        private Order ?currentOrder;
+        private PointCard rewards;
+        public string Name {  get { return name; } set {  name = value; } }
+        public int Memberid { get {  return memberid; } set {  memberid = value; } }
+        public DateTime Dob { get {  return dob; } set {  dob = value; } }
+        public Order CurrentOrder
+        {
+            get { return currentOrder; }
+            set { currentOrder = value; }
+        }
+        public List<Order> orderHistory { get; set; }
+            = new List<Order>();
+        public PointCard Rewards { get { return rewards; } set {  rewards = value; } }
+        public Customer() { }
+        public Customer(string Name, int Memberid, DateTime Dob)
+        {
+            Name = name;
+            Memberid = memberid;
+            Dob = dob;
+        }
+        public Order MakeOrder()
+        {
+            
+        }
+        public bool isBirthday()
+        {
+            string birthday = Dob.ToString("MM/dd");
+            if (birthday ==)
+        }
+        public override string ToString()
+        {
+            return "Name: " + Name + " Member ID: " + Memberid + " Date of Birth: " + Dob;
+        }
     }
     //Class PointCard
     public class PointCard
