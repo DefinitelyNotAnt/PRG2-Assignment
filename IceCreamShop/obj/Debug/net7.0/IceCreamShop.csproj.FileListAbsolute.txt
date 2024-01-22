@@ -40,3 +40,17 @@ C:\Users\User\Desktop\PROGRAMMING II\Assignment\New folder\IceCreamShop\obj\Debu
 C:\Users\User\Desktop\PROGRAMMING II\Assignment\New folder\IceCreamShop\obj\Debug\net7.0\IceCreamShop.pdb
 C:\Users\User\Desktop\PROGRAMMING II\Assignment\New folder\IceCreamShop\obj\Debug\net7.0\IceCreamShop.genruntimeconfig.cache
 C:\Users\User\Desktop\PROGRAMMING II\Assignment\New folder\IceCreamShop\obj\Debug\net7.0\ref\IceCreamShop.dll
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\bin\Debug\net7.0\IceCreamShop.exe
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\bin\Debug\net7.0\IceCreamShop.deps.json
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\bin\Debug\net7.0\IceCreamShop.runtimeconfig.json
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\bin\Debug\net7.0\IceCreamShop.dll
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\bin\Debug\net7.0\IceCreamShop.pdb
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\obj\Debug\net7.0\IceCreamShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\obj\Debug\net7.0\IceCreamShop.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\obj\Debug\net7.0\IceCreamShop.AssemblyInfo.cs
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\obj\Debug\net7.0\IceCreamShop.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\obj\Debug\net7.0\IceCreamShop.dll
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\obj\Debug\net7.0\refint\IceCreamShop.dll
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\obj\Debug\net7.0\IceCreamShop.pdb
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\obj\Debug\net7.0\IceCreamShop.genruntimeconfig.cache
+C:\Users\User\Desktop\PROGRAMMING II\Assignment\Term 2\IceCreamShop\obj\Debug\net7.0\ref\IceCreamShop.dll

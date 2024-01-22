@@ -35,7 +35,6 @@ namespace IceCreamShop{
             //Declaration of variable
             Order order = new Order();
             bool premium;
-            string;
             //store file data
             List<string> IceCreamOption = new List<string>();
             List<string> WaffleFlavourOption = new List<string>();
@@ -215,6 +214,7 @@ namespace IceCreamShop{
         public PointCard()
         {
             points = 0;
+            PunchCard = 0;
         }
         public PointCard(int points, int punchCard)
         {
@@ -667,6 +667,6 @@ namespace IceCreamShop{
                     Console.WriteLine(e.ToString());
                 }
             }
-        }
+        }*/
     }
 }
