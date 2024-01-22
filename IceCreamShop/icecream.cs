@@ -444,6 +444,32 @@ namespace IceCreamShop{
                                     }
                                     Console.WriteLine($"Your cone is now {cone.Dipped}.");
                                     break;
+                                case "3":
+                                    if (iceCream.Option == "Waffle")
+                                    {
+                                        Console.WriteLine("Option is already waffle.");
+                                    }
+                                    else
+                                    {
+                                        iceCream.Option = "Waffle";
+                                        Console.WriteLine("Option changed to Waffle.");
+                                    }
+                                    Waffle waffle = iceCream;
+                                    Console.Write("Do you want regular cone or chocolate-dipped cone? [Y/N]: ");
+                                    userInput = Console.ReadLine().ToUpper();
+                                    switch (userInput)
+                                    {
+                                        case "Y":
+                                            cone.Dipped = true;
+                                            break;
+                                        case "N":
+                                            cone.Dipped = false;
+                                            break;
+                                        default:
+                                            Console.WriteLine("No change will be made.");
+                                    }
+                                    Console.WriteLine($"Your cone is now {cone.Dipped}.");
+                                    break;
                             }
                             break;
                         case "2":
@@ -459,7 +485,7 @@ namespace IceCreamShop{
                                     iceCream.Scoops = 2;
                                     Console.WriteLine("Scoop number changed to 2.");
                                     break;
-                                case "3":
+                                case "3": 
                                     iceCream.Scoops = 3;
                                     Console.WriteLine("Scoop number changed to 3.");
                                     break;
