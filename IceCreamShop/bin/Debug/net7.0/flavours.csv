@@ -1,7 +1,7 @@
-Flavour,Cost
-Vanilla,0
-Chocolate,0
-Strawberry,0
-Durian,2
-Ube,2
-Sea salt,2
+Flavour,Cost,Premium
+Vanilla,0,FALSE
+Chocolate,0,FALSE
+Strawberry,0,FALSE
+Durian,2,TRUE
+Ube,2,TRUE
+Sea salt,2,TRUE
