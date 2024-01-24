@@ -46,7 +46,7 @@ namespace IceCreamShop{
                     //Need to assign pointcard to customer
                     using (StreamWriter sw = new StreamWriter("customers.csv", true))
                     {
-                        sw.WriteLine(name + "," + id + "," + dob.ToString("yyyy/MM/dd");
+                        sw.WriteLine(name + "," + id + "," + dob.ToString("yyyy/MM/dd"));
                     }
                     /*string h = File.ReadAllText("customers.csv");
                     Console.WriteLine(h);*/
