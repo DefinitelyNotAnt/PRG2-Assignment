@@ -60,11 +60,16 @@ namespace IceCreamShop{
                         string[] data = FullData[i].Split(",");
                         Console.WriteLine("{0}. {1}",i+1,data[0]);
                     }
-                    Console.WriteLine("Customer No.");
+                    Console.WriteLine("Enter Customer Nunmber : ");
                     int customer=Convert.ToInt32(Console.ReadLine());
+                    string[] datalist = FullData[customer].Split(",");
+                    string name = datalist[0];
+                    int MemberID = Convert.ToInt32(datalist[1]);
+                    DateTime DOB = Convert.ToDateTime(datalist[2]);
                     //Find customer object
-                    foreach(string data in FullData)
-                    customer.Makeorder();
+                    Customer customer1 = new Customer(name,MemberID,DOB);
+                    customer1.MakeOrder();
+                    
                 }
                 else if (choice == 0) { break; }
 
