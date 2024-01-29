@@ -44,9 +44,6 @@ namespace IceCreamShop{
         //upper all
         public Order MakeOrder()
         {
-            //Declaration of variable
-            Order order = new Order();
-            bool premium;
             //store file data
             List<string> IceCreamOption = new List<string>();
             List<string> WaffleFlavourOption = new List<string>();
@@ -97,10 +94,10 @@ namespace IceCreamShop{
                 int option = Convert.ToInt32(Console.ReadLine());
                 if (option == 1)
                 {
-                    string iceCreamName = IceCreamOption[option];
+                    string cupName = IceCreamOption[option];
                     Console.WriteLine("You have chosen {0}", IceCreamOption[option - 1]);
                     Console.Write("How many scoops: ");
-                    int scoops = Convert.ToInt32(Console.ReadLine());
+                    int cupscoops = Convert.ToInt32(Console.ReadLine());
                     while (flavours.Count < 3)
                     {
                         Console.Write($"How many flavour(s) would you like (max 3): ");
@@ -142,32 +139,149 @@ namespace IceCreamShop{
                         }
                     }
                     Console.WriteLine("You have ordered your toppings!");
-                    IceCream icecream= new Cup(iceCreamName,scoops,flavours,toppings);
+                    IceCream icecream= new Cup(cupName,cupscoops,flavours,toppings);
                     Icecream.Add(icecream);
-
                 }
                 else if (option == 2)
                 {
+                    string coneName = IceCreamOption[option];
                     Console.WriteLine("You have chosen {0}", IceCreamOption[option - 1]);
+                    Console.Write("How many scoops: ");
+                    int conescoops = Convert.ToInt32(Console.ReadLine());
+                    while (flavours.Count < 3)
+                    {
+                        Console.Write($"How many flavour(s) would you like (max 3): ");
+                        int flavourquantity = Convert.ToInt32(Console.ReadLine());
+                        int i = 1;
+                        foreach (KeyValuePair<string, bool> icecreamF in FlavoursOption)
+                        {
+                            Console.WriteLine($"{i}. {icecreamF.Key}");
+                            i++;
+                        }
+                        Console.Write("What flavour would you like (Type in the name): ");
+                        string tempflavour = Console.ReadLine();
+                        bool flavourB = FlavoursOption[tempflavour];
+                        Flavour flavour = new Flavour(tempflavour, flavourB, flavourquantity);
+                        flavours.Add(flavour);
+                        if (flavours.Count == flavourquantity)
+                        {
+                            break;
+                        }
+                    }
+                    Console.WriteLine("You have ordered your flavours!");
+                    while (toppings.Count < 4)
+                    {
+                        int i = 1;
+                        foreach (string topping in ToppingsOption)
+                        {
+                            Console.WriteLine($"{i}. {topping}");
+                            i++;
+                        }
+                        Console.WriteLine("Enter your topping choice: ");
+                        string toppingChoice = Console.ReadLine();
+                        Topping toppingoption = new Topping(toppingChoice);
+                        toppings.Add(toppingoption);
+                        Console.WriteLine("Would you like more toppings? Y/N:");
+                        string boolean = Console.ReadLine();
+                        if (boolean == "N")
+                        {
+                            break;
+                        }
+                    }
+                    Console.WriteLine("You have ordered your toppings!");
                     Console.WriteLine("Would you like chocolate dipped cone? Y/N: ");
-                    if (Console.ReadLine() == "Y")
+                    string userinput = Console.ReadLine();
+                    bool dipped;
+                    if (userinput == "Y")
                     {
-                        premium = true;
+                        dipped = true;
                     }
-                    else if (Console.ReadLine() == "N")
+                    else if (userinput == "N")
                     {
-                        premium = false;
+                        dipped = false;
                     }
+                    //
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Assuming 'N' (no chocolate dipped cone).");
+                        dipped = false;
+                    }
+                    IceCream icecream = new Cone(coneName, conescoops, flavours, toppings, dipped);
+                    Icecream.Add(icecream);
                 }
                 else if (option == 3)
                 {
                     Console.WriteLine("You have chosen {0}", IceCreamOption[option - 1]);
-                    Console.WriteLine("What flavour would you like?");
-                    for (int i = 0; i < WaffleFlavourOption.Count; i++)
+                    string waffleName = IceCreamOption[option];
+                    Console.WriteLine("You have chosen {0}", IceCreamOption[option - 1]);
+                    Console.Write("How many scoops: ");
+                    int wafflescoops = Convert.ToInt32(Console.ReadLine());
+                    while (flavours.Count < 3)
                     {
-                        Console.WriteLine("{0}. {1}", i + 1, WaffleFlavourOption[i]);
+                        Console.Write($"How many flavour(s) would you like (max 3): ");
+                        int flavourquantity = Convert.ToInt32(Console.ReadLine());
+                        int i = 1;
+                        foreach (KeyValuePair<string, bool> icecreamF in FlavoursOption)
+                        {
+                            Console.WriteLine($"{i}. {icecreamF.Key}");
+                            i++;
+                        }
+                        Console.Write("What flavour would you like (Type in the name): ");
+                        string tempflavour = Console.ReadLine();
+                        bool flavourB = FlavoursOption[tempflavour];
+                        Flavour flavour = new Flavour(tempflavour, flavourB, flavourquantity);
+                        flavours.Add(flavour);
+                        if (flavours.Count == flavourquantity)
+                        {
+                            break;
+                        }
                     }
-                    Console.WriteLine("Your choice: ");
+                    Console.WriteLine("You have ordered your flavours!");
+                    while (toppings.Count < 4)
+                    {
+                        int i = 1;
+                        foreach (string topping in ToppingsOption)
+                        {
+                            Console.WriteLine($"{i}. {topping}");
+                            i++;
+                        }
+                        Console.WriteLine("Enter your topping choice: ");
+                        string toppingChoice = Console.ReadLine();
+                        Topping toppingoption = new Topping(toppingChoice);
+                        toppings.Add(toppingoption);
+                        Console.WriteLine("Would you like more toppings? Y/N:");
+                        string boolean = Console.ReadLine();
+                        if (boolean == "N")
+                        {
+                            break;
+                        }
+                    }
+                    Console.WriteLine("You have ordered your toppings!");
+                    string waffleFlavour;
+                    Console.WriteLine("Would you like to add any add-on flavours? (Y/N)");
+                    string userinput = Console.ReadLine();
+                    if (userinput == "Y")
+                    {
+                        for (int i = 0; i < WaffleFlavourOption.Count; i++)
+                        {
+                            Console.WriteLine("{0}. {1}", i + 1, WaffleFlavourOption[i]);
+                        }
+                        Console.WriteLine("Your choice: ");
+                        waffleFlavour = Console.ReadLine();
+                        Console.WriteLine("You have ordered add-on waffle flavour!");
+                    }
+                    else if (userinput == "N")
+                    {
+                        waffleFlavour = "none";
+                        Console.WriteLine("You did not order add-on waffle flavour!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Assuming 'N' (no add-on waffle flavour.");
+                        waffleFlavour = "none";
+                    }
+                    IceCream icecream = new Waffle(waffleName, wafflescoops, flavours, toppings, waffleFlavour);
+                    Icecream.Add(icecream);
                 }
                 else
                 {
@@ -539,7 +653,7 @@ namespace IceCreamShop{
             this.Scoops = 0;
             this.Flavours = new List<Flavour>();
             this.Toppings = new List<Topping>();
-            waffleFlavour = "None";
+            waffleFlavour = "none";
          }
         public Waffle(string Option, int Scoops, List<Flavour> Flavours, List<Topping> Toppings, string WaffleFlavour) : base(Option, Scoops, Flavours, Toppings)
         {
@@ -562,7 +676,7 @@ namespace IceCreamShop{
                 basePrice = 9.50;
             }
             // Implement +$3 for flavoured waffle
-            if (WaffleFlavour != "None")
+            if (WaffleFlavour != "none")
             {
                 basePrice += 3;
             }

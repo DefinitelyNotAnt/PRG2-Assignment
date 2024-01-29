@@ -1,0 +1,30 @@
+- ice cream : cup, cone, or waffle
+- cup or cone cost the same 
+-  waffle option will incur an additional cost of $3. For all three options, 
+- 1-3 scoops of any of the flavours
+- the premium flavours $2 extra per scoop. 
+- toppings $1 max 4
+- may upgrade cone to a chocolate-dipped cone or choose what flavour waffle they want
+
+- When Otto receives an order, it gets placed in the queue
+- one order can have multiple ice creams in it
+- prepares the orders in the sequence that they are received
+- only releasing them from the queue when they have been completed and displayed
+- keep track of the birthdays of all its customers
+- the first order made by customers on their birthday will have the most expensive ice cream in that order free of charge
+- If do not already have one, paying customers are automatically given a special PointCard 
+  and put into the rewards programme at I.C.Treats the moment they are registered into the system. 
+- A customer begins as an ordinary member
+- is only converted to a silver or gold membership once 50 and 100 points are earned
+- Entered new tier of membership, they cannot drop back down, even if points = 0 or points<= 50 or 100
+
+- Points are earned from the final amount paid 
+- The conversion rate for points to be earned is 72% of the total amount paid rounded down to the nearest integer.  
+- Only silver and gold members can redeem their points. 
+- Silver members and above can redeem their points to offset the cost of their final bill, where 1 point = $0.02. 
+- gold members have the added benefit that they will be placed into the special gold members order queue whenever they place their order.
+- All the orders in the gold members order queue will always be fulfilled before fulfilling the orders in the regular queue.
+- PointCards also have a punch card system set in place
+- every 10 ice creams a customer orders at I.C.Treats, 
+- 11th ice cream comes free of charge
+- the punch card is reset back to 0.
