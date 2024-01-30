@@ -537,6 +537,9 @@ namespace IceCreamShop
                 }
                 return custOrder;
             }
+            void ProcessAndCheckout(){
+
+            }
         }
     }
 }
