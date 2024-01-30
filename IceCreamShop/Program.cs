@@ -93,39 +93,49 @@ namespace IceCreamShop
                             Console.Write("Enter your date of birth (YYYY/MM/DD): ");
                             DateTime dob = Convert.ToDateTime(Console.ReadLine());
                             Customer customer = new Customer(name, id, dob);
+                            string membershipstatus = "Ordinary";
                             PointCard pointcard = new PointCard(0, 0);
-                            //Need to assign pointcard to customer
+                            //assigning Pointcard object to customer
+                            customer.Rewards = pointcard;
                             using (StreamWriter sw = new StreamWriter("customers.csv", true))
                             {
-                                sw.WriteLine(name + "," + id + "," + dob.ToString("yyyy/MM/dd") + "," + "Ordinary" + "," + "0" + "," + "0");
+                                sw.WriteLine(name + "," + id + "," + dob.ToString("yyyy/MM/dd") + "," + membershipstatus + "," + customer.Rewards.Points + "," + customer.Rewards.PunchCard);
                             }
+                            string h = File.ReadAllText("customers.csv");
+                            Console.WriteLine(h);
                             break;
+
                         // Option 4: Create a customer's order
                         case 4:
                             string[] FullData = File.ReadAllLines("customers.csv");
-                            for (int i = 0; i < FullData.Length; i++)
+                            for (int i = 1; i < FullData.Length-1; i++)
                             {
                                 string[] data = FullData[i].Split(",");
-                                Console.WriteLine("{0}. {1}", i + 1, data[0]);
+                                Console.WriteLine("{0}. {1}", i , data[0]);
                             }
                             Console.WriteLine("Enter Customer Number : ");
                             int newcustomer = Convert.ToInt32(Console.ReadLine());
-                            string[] datalist = FullData[newcustomer - 1].Split(",");
+                            string[] datalist = FullData[newcustomer].Split(",");
                             string customername = datalist[0];
                             int MemberID = Convert.ToInt32(datalist[1]);
                             DateTime DOB = Convert.ToDateTime(datalist[2]);
                             Customer customer1 = new Customer(customername, MemberID, DOB);
                             Order icecreamorder;
+                            List<Order> ordershistory = new List<Order>();
                             while (true)
                             {
                                 icecreamorder = customer1.MakeOrder();
+                                customer1.CurrentOrder= icecreamorder;
+                                ordershistory.Add(icecreamorder);
                                 Console.WriteLine("Would you like to make another order? Y/N ");
                                 if (Console.ReadLine().ToUpper() == "N")
                                 {
+                                    customer1.OrderHistory = ordershistory;
                                     break;
                                 }
                                 else if (Console.ReadLine().ToUpper() != "Y")
                                 {
+                                    customer1.OrderHistory = ordershistory;
                                     Console.WriteLine("Neither option have been selected. Assuming no more orders.");
                                     break;
                                 }
@@ -162,7 +172,7 @@ namespace IceCreamShop
                 foreach (string line in FullData)
                 {
                     string[] data = line.Split(",");
-                    Console.WriteLine("{0,-12}{1,-12}{2,-15}", data[0], data[1], data[2]);
+                    Console.WriteLine("{0,-12}{1,-12}{2,-15}{3,-20}{4,-20}{5,-20}", data[0], data[1], data[2], data[3], data[4], data[5]);
                 }
             }
             List<Customer> CreateCustomers()
