@@ -2,7 +2,19 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using IceCreamShop;
 using static System.Formats.Asn1.AsnWriter;
-/*
+// Notes:
+// 1) Implementing so that each topping is limited to 1
+// 2) Message shows up when ice cream has 0 scoops and only toppings
+// ("Cannot order only toppings")
+// 3) Assuming number of flavours do not need to match number of scoops
+//      - Modify Ice cream will be a mess
+//      - Adding flavour will need to check and add scoop
+//      - Removing flvour would need to remove a scoop
+//      - Changing scoop number needs to add/remove flavours
+//      - Reducing scoop number needs to promopt which flavour to remove
+//      - Adding scoops needs to also rpompt flavours
+// (Possible but much much longer)
+// 4) 
 namespace IceCreamShop
 {
     //Class Customer
@@ -29,7 +41,7 @@ namespace IceCreamShop
             name = "";
             memberid = 0;
             dob = DateTime.MinValue;
-            currentOrder = null;
+            currentOrder = new Order();
             orderHistory = new List<Order>();
             rewards = new PointCard();
         }
@@ -38,7 +50,7 @@ namespace IceCreamShop
             name = Name;
             memberid = Memberid;
             dob = Dob;
-            currentOrder = null;
+            currentOrder = new Order();
             orderHistory = new List<Order>();
             rewards = new PointCard();
         }
@@ -775,7 +787,7 @@ namespace IceCreamShop
         public void AddIceCream(IceCream icecream)
         {
             // Ice cream option
-            iceCreamList.Add(icecream);
+            this.iceCreamList.Add(icecream);
         }
         // Remove ice cream
         public void DeleteIceCream(int indexing)
@@ -922,4 +934,4 @@ namespace IceCreamShop
             }
         }
     }
-}*/
+}
