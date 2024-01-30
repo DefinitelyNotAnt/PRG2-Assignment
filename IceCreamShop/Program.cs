@@ -127,7 +127,7 @@ namespace IceCreamShop
                                 icecreamorder = customer1.MakeOrder();
                                 customer1.CurrentOrder= icecreamorder;
                                 ordershistory.Add(icecreamorder);
-                                Console.WriteLine("Would you like to make another order? Y/N ");
+                                Console.WriteLine("Would you like to make another order? (Y/N) :");
                                 if (Console.ReadLine().ToUpper() == "N")
                                 {
                                     customer1.OrderHistory = ordershistory;
@@ -142,8 +142,17 @@ namespace IceCreamShop
                             }
                             //link the new order to the customer’s current order
                             customer1.CurrentOrder = icecreamorder;
+                            //Gold
                             string tier = customer1.Rewards.Tier;
-                            Console.Write(tier);
+                            if (tier.ToUpper() == "GOLD")
+                            {
+                                goldqueue.Enqueue(icecreamorder);
+                            }
+                            else
+                            {
+                                regqueue.Enqueue(icecreamorder);
+                            }
+                            Console.WriteLine("Order has been made successfully!");
                             break;
                         // Display order details of a customer
                         case 5:

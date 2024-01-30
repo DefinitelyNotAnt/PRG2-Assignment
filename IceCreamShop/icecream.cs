@@ -309,20 +309,7 @@ namespace IceCreamShop
                 }
                 order = new Order(Memberid, DateTime.Now);
                 order.IceCreamList = Icecream;
-                Console.Write("Would you like to make another order? Y/N");
-                string orderChoice = Console.ReadLine();
-                if (orderChoice.ToUpper() == "N")
-                {
-                    foreach (IceCream i in Icecream)
-                    {
-                        Console.WriteLine(i);
-                    }
-                    break;
-                }
-                else if (orderChoice != "Y")
-                {
-                    Console.WriteLine("Invalid input. Assuming \"Y\" is the choice.");
-                }
+                break;
             }
             return order;
         }
@@ -782,7 +769,6 @@ namespace IceCreamShop
                                     default:
                                         throw new Exception("Error");
                                 }
-
                                 break;
                             // Modify Flavours
                             case "2":
