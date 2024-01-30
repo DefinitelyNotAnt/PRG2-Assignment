@@ -1,3 +1,5 @@
+/*
+
 using System.Security.Cryptography.X509Certificates;
 using static System.Formats.Asn1.AsnWriter;
 // Notes:
@@ -369,7 +371,7 @@ namespace IceCreamShop{
                 List<string> 
 
 
-            }*/
+            }
         public bool isBirthday()
         {
             string birthday = Dob.ToString("MM/dd");
@@ -1435,7 +1437,7 @@ namespace IceCreamShop{
                             iceCreamList.Add(newWaffle);
                             outputDisplay = "waffle";
                             break;
-                    }
+                    } ///
                 }
                 // Cup
                 else
@@ -1449,7 +1451,7 @@ namespace IceCreamShop{
             catch
             {
                 Console.WriteLine("Creation cancelled. Try again.");
-            }*/
+            }
         }
         // Remove ice cream
         public void DeleteIceCream(int indexing)
@@ -1482,4 +1484,4 @@ namespace IceCreamShop{
             return startStr;
         }
     }
-}
+}*/
