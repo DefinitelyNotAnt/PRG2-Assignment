@@ -137,7 +137,7 @@ namespace IceCreamShop
                             break;
                         // Display order details of a customer
                         case 5:
-                            Console.WriteLine();
+                            SelectCustomerAndOrder(customerlist, true);
                             break;
                         // Modify Order Details
                         case 6:
@@ -286,9 +286,10 @@ namespace IceCreamShop
                                         default:
                                             throw new Exception("Error");
                                     }
+                                    newOrder.TimeFulfilled = DateTime.Parse(orderdata[i][3]);
                                     customer.CurrentOrder = newOrder;
                                     orders.Enqueue(newOrder);
-                                    customer.orderHistory.Add(newOrder);
+                                    customer.OrderHistory.Add(newOrder);
                                     break;
                                 }
                             }
@@ -348,8 +349,10 @@ namespace IceCreamShop
                 }
                 return returnQ;
             }
+            // Display Orders
             void DisplayOrders(Queue<Order> goldQ, Queue<Order> regQ)
             {
+                // Prints gold queue
                 Console.WriteLine("Gold Queue:");
                 Console.WriteLine($"[No.] {"Order ID",-10}{"Time Received",-25}{"Number of ice cream",-5}");
                 int count = 1;
@@ -358,6 +361,7 @@ namespace IceCreamShop
                     Console.WriteLine($"[ {count,2}] {order.Id,-10}{order.TimeReceived,-25}{order.IceCreamList.Count,-5}");
                     count++;
                 }
+                // Prints Regular queue
                 Console.WriteLine("\nRegular Queue:");
                 count = 1;
                 foreach (Order order in regQ)
@@ -371,24 +375,148 @@ namespace IceCreamShop
             {
                 try
                 {
-                    // Print all customers and select option
-                    int count = 1;
-                    Console.WriteLine($"[No.] {"Name",-10}{"Member ID",-10}{"Tier",-10}");
-                    foreach (Customer cust in customerlist)
+                    Order custOrder = SelectCustomerAndOrder(customerlist, false);
+                    bool menulooping = true;
+                    while (menulooping)
                     {
-                        Console.WriteLine($"[ {count,-2}] {cust.Name,-10}{cust.Memberid,-10}{cust.Rewards.Tier,-10}");
-                        count++;
-                    }/*
-                    Console.Write("Select customer: ");
-                    userinput = Console.ReadLine();
-                    int indexing = Convert.ToInt32(userinput) - 1;
-                    Customer selectedCustomer = customerlist[indexing];
-                    Order custOrder = selectedCustomer.CurrentOrder;*/
+                        Console.Write("_______________________________________________\n" +
+                                      "_________________ Modify Order ________________\n" +
+                                      "_______________________________________________\n" +
+                                          "[ 1 ] Modify ice cream\n" +
+                                          "[ 2 ] Add ice cream\n" +
+                                          "[ 3 ] Remove ice cream\n" +
+                                          "[ 4 ] View current order\n" +
+                                          "[ 0 ] Cancel\n" +
+                                          "Select an option: ");
+                        string? userinput = Console.ReadLine();
+                        switch (userinput)
+                        {
+                            case "1":
+                                Console.WriteLine(custOrder.ToString());
+                                Console.Write("Choose ice cream to modify: ");
+                                userinput = Console.ReadLine();
+                                // try catch will send any invalid options into catch below
+                                int icecreamIndex = Convert.ToInt32(userinput);
+                                custOrder.ModifyIceCream(icecreamIndex);
+                                break;
+                            case "2":
+                                List<string[]> data = Utils.GetInfo("options.csv", true);
+                                // Gets option selected and stores it inside newSelection
+                                string[] newSelection = Utils.Readinfo(data, null);
+                                List<Flavour> flavours = new List<Flavour>();
+                                // Go to catch block here if invalid option selected
+                                int flavourcount = Convert.ToInt32(newSelection[1]);
+                                // Empty Flavour and Topping Lists
+                                List<Flavour> flavours1 = new List<Flavour>();
+                                List<Topping> topping1 = new List<Topping>();
+                                // 1 Flavour per scoop
+                                List<string[]> flavourData = Utils.GetInfo("flavours.csv", true);
+                                // 1 Flavour per scoop
+                                for (int i = 0; i < flavourcount; i++)
+                                {
+                                    // Get flavour
+                                    Console.WriteLine($"Flavour {i + 1}");
+                                    string[] fullFlavour = Utils.Readinfo(flavourData, null);
+                                    // Create new flavour
+                                    bool check = false;
+                                    // If flavour already inside
+                                    foreach (Flavour flavour in flavours1)
+                                    {
+                                        if (flavour.Type == fullFlavour[0])
+                                        {
+                                            // Increase quantity
+                                            flavour.Quantity += 1;
+                                            check = true;
+                                        }
+                                    }
+                                    // Fail check
+                                    if (!check)
+                                    {
+                                        // Add flavour
+                                        Flavour newFlavour = new Flavour(fullFlavour[0], Convert.ToBoolean(fullFlavour[2]), 1);
+                                        flavours1.Add(newFlavour);
+                                    }
+                                }
+                                switch (newSelection[0])
+                                {
+                                    case "Cup":
+                                        Cup newCup = new Cup(newSelection[0], Convert.ToInt32(newSelection[1]), flavours1, topping1);
+                                        custOrder.AddIceCream(newCup);
+                                        break;
+                                    case "Cone":
+                                        Cone newCone = new Cone(newSelection[0], Convert.ToInt32(newSelection[1]), flavours1, topping1, Convert.ToBoolean(newSelection[2]));
+                                        custOrder.AddIceCream(newCone);
+                                        break;
+                                    case "Waffle":
+                                        Waffle newWaffle = new Waffle(newSelection[0], Convert.ToInt32(newSelection[1]), flavours1, topping1, newSelection[3]);
+                                        custOrder.AddIceCream(newWaffle);
+                                        break;
+                                    default:
+                                        throw new Exception("Error");
+                                }
+
+                                break;
+                            case "3":
+                                Console.Write("Select ice cream to remove: ");
+                                int removeIndex = Convert.ToInt32(Console.ReadLine());
+                                custOrder.IceCreamList.RemoveAt(removeIndex - 1);
+                                break;
+                            case "4":
+                                Console.WriteLine(custOrder.ToString());
+                                break;
+                            case "0":
+                                menulooping = false;
+                                break;
+                            default:
+                                Console.WriteLine("Not an option.");
+                                break;
+                        }
+                    }
                 }
                 catch
                 {
                     Console.WriteLine("Error.");
                 }
+            }
+            Order SelectCustomerAndOrder(List<Customer> customerlist, bool pastOrder)
+            {
+                // Print all customers and select option
+                int count = 1;
+                Console.WriteLine($"[No.] {"Name",-10}{"Member ID",-10}{"Tier",-10}");
+                foreach (Customer cust in customerlist)
+                {
+                    Console.WriteLine($"[ {count,-2}] {cust.Name,-10}{cust.Memberid,-10}{cust.Rewards.Tier,-10}");
+                    count++;
+                }
+                Console.Write("Select customer: ");
+                string? userinput = Console.ReadLine();
+                int indexing = Convert.ToInt32(userinput) - 1;
+                Customer selectedCustomer = customerlist[indexing];
+                Order custOrder = selectedCustomer.CurrentOrder;
+                // Prints all past orders
+                if (pastOrder)
+                {
+                    // Prints for every order in order history
+                    foreach (Order orderhist in selectedCustomer.OrderHistory)
+                    {
+                        Console.WriteLine();
+                        double ordertotal = orderhist.CalculateTotal();
+                        Console.WriteLine($"{"Order Id",-10}{"Date Received",-25}{"Date Fulfilled",-25}{"Total Cost"}");
+                        Console.WriteLine($"{orderhist.Id,-10}{orderhist.TimeReceived,-25}{orderhist.TimeFulfilled,-25}${ordertotal}");
+                        Console.WriteLine(orderhist.ToString());
+                    }
+                }
+                // Prints for current order
+                else
+                {
+                    // Prints current order
+                    Console.WriteLine();
+                    double ordertotal = custOrder.CalculateTotal();
+                    Console.WriteLine($"{"Order Id",-10}{"Date Received",-25}{"Date Fulfilled",-25}{"Total Cost"}");
+                    Console.WriteLine($"{custOrder.Id,-10}{custOrder.TimeReceived,-25}{custOrder.TimeFulfilled,-25}${ordertotal}");
+                    Console.WriteLine(custOrder.ToString());
+                }
+                return custOrder;
             }
         }
     }

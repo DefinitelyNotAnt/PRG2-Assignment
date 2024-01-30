@@ -33,7 +33,7 @@ namespace IceCreamShop
             get { return currentOrder; }
             set { currentOrder = value; }
         }
-        public List<Order> orderHistory { get; set; }
+        public List<Order> OrderHistory { get; set; }
             = new List<Order>();
         public PointCard Rewards { get { return rewards; } set { rewards = value; } }
         public Customer()
@@ -42,7 +42,7 @@ namespace IceCreamShop
             memberid = 0;
             dob = DateTime.MinValue;
             currentOrder = new Order();
-            orderHistory = new List<Order>();
+            OrderHistory = new List<Order>();
             rewards = new PointCard();
         }
         public Customer(string Name, int Memberid, DateTime Dob)
@@ -51,7 +51,7 @@ namespace IceCreamShop
             memberid = Memberid;
             dob = Dob;
             currentOrder = new Order();
-            orderHistory = new List<Order>();
+            OrderHistory = new List<Order>();
             rewards = new PointCard();
         }
         //MakeOrder Method
@@ -141,7 +141,7 @@ namespace IceCreamShop
                 }
             }
         }
-        public bool isBirthday()
+        public bool IsBirthday()
         {
             string birthday = Dob.ToString("MM/dd");
             if (birthday == DateTime.Now.ToString("MM/dd"))
@@ -363,7 +363,6 @@ namespace IceCreamShop
             {
                 foreach (string[] filedata in data)
                 {
-                    Console.WriteLine(filedata[1]);
                     if (filedata[0] == this.Option && Convert.ToInt32(filedata[1]) == this.Scoops)
                     {
                         basePrice = Convert.ToDouble(filedata[4]);
@@ -373,7 +372,6 @@ namespace IceCreamShop
             }
             catch (Exception e)
             {
-                basePrice = 0;
                 Console.WriteLine(e.ToString());
                 return 0;
             }
@@ -577,12 +575,14 @@ namespace IceCreamShop
                                 // Show current option
                                 Console.WriteLine($"Current option is: {icecream.Option}.");
                                 List<string[]> data = Utils.GetInfo("options.csv", true);
+                                // Gets option selected and stores it inside newSelection
                                 string[] newSelection = Utils.Readinfo(data, null);
                                 List<Flavour> flavours = new List<Flavour>();
                                 switch (newSelection[0])
                                 {
                                     case "Cup":
                                         Cup newCup = new Cup(newSelection[0], Convert.ToInt32(newSelection[1]), icecream.Flavours, icecream.Toppings);
+                                        ScoopsCheck(newCup);
                                         iceCreamList[index - 1] = newCup;
                                         break;
                                     case "Cone":
@@ -591,11 +591,13 @@ namespace IceCreamShop
                                         break;
                                     case "Waffle":
                                         Waffle newWaffle = new Waffle(newSelection[0], Convert.ToInt32(newSelection[1]), icecream.Flavours, icecream.Toppings, newSelection[3]);
+                                        ScoopsCheck(newWaffle);
                                         iceCreamList[index - 1] = newWaffle;
                                         break;
                                     default:
                                         throw new Exception("Error");
                                 }
+
                                 break;
                             // Modify Flavours
                             case "2":
@@ -603,6 +605,10 @@ namespace IceCreamShop
                                 Console.WriteLine("Flavours:");
                                 // Get all flavours in a line with quantity
                                 string returnStr = "";
+                                foreach (Flavour flav in icecream.Flavours)
+                                {
+                                    returnStr += flav.ToString() + "\n";
+                                }
                                 // Count for remove flavour
                                 int count = 1;
                                 foreach (Flavour flavour in icecream.Flavours)
@@ -615,9 +621,8 @@ namespace IceCreamShop
                                 Console.WriteLine(returnStr + "\n");
                                 // Modify flavours
                                 Console.Write("Modify Flavours:\n" +
-                                    "[1] Add flavour\n" +
-                                    "[2] Remove flavour\n" +
-                                    "[3] View current flavours\n" +
+                                    "[1] Change flavour\n" +
+                                    "[2] View current flavours\n" +
                                     "[0] Cancel\n" +
                                     "Enter Option: ");
                                 userinput = Console.ReadLine();
@@ -625,7 +630,35 @@ namespace IceCreamShop
                                 {
                                     // Add flavour
                                     case "1":
-                                        Console.WriteLine("Choose a flavour to add: ");
+                                        // Remove flavour first
+                                        Console.Write("Choose a flavour to remove (Eg: \"Chocolate\"): ");
+                                        userinput = Console.ReadLine();
+                                        bool removalcheck = false;
+                                        // Check if flavour in flavour list
+                                        foreach (Flavour flavour in icecream.Flavours)
+                                        {
+                                            if (flavour.Type.ToUpper() == userinput.ToUpper())
+                                            {
+                                                // Reduce quantity once
+                                                flavour.Quantity -= 1;
+                                                // If <=0 remove flavour
+                                                if (flavour.Quantity <= 0)
+                                                {
+                                                    icecream.Flavours.Remove(flavour);
+                                                }
+                                                // Set check for removal
+                                                removalcheck = true;
+                                                break;
+                                            }
+                                        }
+                                        // If flavour not in flavour list
+                                        if (!removalcheck)
+                                        {
+                                            // Nothing was removed so Exception thrown
+                                            throw new Exception("No flavour was removed.");
+                                        }
+                                        // Add flavour
+                                        Console.Write("Choose a flavour to add: ");
                                         // Get values and data
                                         List<string[]> flavourData = Utils.GetInfo("flavours.csv", true);
                                         string[] fullFlavour = Utils.Readinfo(flavourData, null);
@@ -645,40 +678,9 @@ namespace IceCreamShop
                                             Flavour newFlavour = new Flavour(fullFlavour[0], Convert.ToBoolean(fullFlavour[2]), 1);
                                             icecream.Flavours.Add(newFlavour);
                                         }
+                                        Console.WriteLine($"Change success.");
                                         break;
                                     case "2":
-                                        Console.Write("Choose a flavour to remove (Eg: \"Chocolate\"): ");
-                                        userinput = Console.ReadLine();
-                                        foreach (Flavour flavour in icecream.Flavours)
-                                        {
-                                            if (flavour.Type.ToUpper() == userinput.ToUpper())
-                                            {
-                                                Console.WriteLine("Amount to remove: ");
-                                                string? amtRemove = Console.ReadLine();
-                                                int amt = Convert.ToInt32(amtRemove);
-                                                if (amt > flavour.Quantity)
-                                                {
-                                                    Console.WriteLine("Removing all flavours of this type.");
-                                                    flavour.Quantity = 0;
-                                                    icecream.Flavours.Remove(flavour);
-                                                    break;
-                                                }
-                                                else if (amt < 0)
-                                                {
-                                                    Console.WriteLine("Invalid amount.");
-                                                    break;
-                                                }
-                                                else
-                                                {
-                                                    Console.WriteLine($"Removing {amt}.");
-                                                    flavour.Quantity -= amt;
-                                                    Console.WriteLine($"New flavour quantity: {flavour.Quantity}");
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        break;
-                                    case "3":
                                         // Print all flavours
                                         Console.WriteLine("\nFlavours:");
                                         Console.WriteLine(returnStr + "\n");
@@ -783,6 +785,72 @@ namespace IceCreamShop
                 }
             }
         }
+        public static void ScoopsCheck(IceCream iceCream)
+        {
+            // Gets number of flavours
+            int flavcount = 0;
+            foreach (Flavour flavs in iceCream.Flavours)
+            {
+                flavcount += flavs.Quantity;
+            }
+            // Checks flavours to scoops
+            if (iceCream.Scoops > flavcount)
+            {
+                Console.WriteLine($"Add {iceCream.Scoops - flavcount} flavours");
+                List<string[]> flavourfulldata = Utils.GetInfo("flavours.csv", true);
+                // Adds flavours to match scoops
+                for (int i = 0; i < (iceCream.Scoops - flavcount); i++)
+                {
+                    // Chooses a flavour
+                    string[] flavourdata = Utils.Readinfo(flavourfulldata, null);
+                    // Creates flavour
+                    Flavour newFlav = new Flavour(flavourdata[0], Convert.ToBoolean(flavourdata[2]), 1);
+                    // If flavour already inside
+                    bool flavnotin = true;
+                    foreach (Flavour flavoursIn in iceCream.Flavours)
+                    {
+                        if (newFlav.Type == flavoursIn.Type)
+                        {
+                            flavoursIn.Quantity += 1;
+                            flavnotin = false;
+                            break;
+                        }
+                    }
+                    if (flavnotin)
+                    {
+                        iceCream.Flavours.Add(newFlav);
+                    }
+                }
+            }
+            // Removes flavours to match scoop count
+            else if (iceCream.Scoops < flavcount)
+            {
+                // Removes flavours to match scoops
+                for (int i = 0; i < (flavcount - iceCream.Scoops); i++)
+                {
+                    // Count to display flavours
+                    string returnStr = "";
+                    int count = 1;
+                    foreach (Flavour flavour in iceCream.Flavours)
+                    {
+                        // Lists out all the flavours stored in the List
+                        returnStr += $"\n[{count}]" + flavour.Type + $" x{flavour.Quantity}";
+                        count++;
+                    }
+                    Console.WriteLine(returnStr);
+                    Console.Write("Choose flavour to remove: ");
+                    int removalIndex = Convert.ToInt32(Console.ReadLine());
+                    if (iceCream.Flavours[removalIndex - 1].Quantity > 1)
+                    {
+                        iceCream.Flavours[removalIndex - 1].Quantity -= 1;
+                    }
+                    else
+                    {
+                        iceCream.Flavours.RemoveAt(removalIndex - 1);
+                    }
+                }
+            }
+        }
         // Add ice cream
         public void AddIceCream(IceCream icecream)
         {
@@ -809,8 +877,9 @@ namespace IceCreamShop
         // ToString
         public override string ToString()
         {
-            string startStr = "Order:\n" +
-                               "====================\n";
+            string startStr = "==========================\n" +
+                               "==========Order:==========\n" +
+                               "==========================\n";
             int count = 1;
             foreach (IceCream iceCream in iceCreamList)
             {
@@ -829,13 +898,14 @@ namespace IceCreamShop
                     }
                     flavourStr += $"{$" - {flavour.Type,-13} x{flavour.Quantity,-3}",-20}${flavourPrice,-5}\n";
                 }
-                startStr += $"[ {count,-2}] {iceCream.Option,-10}{"$" + iceCream.CalculatePrice(),10}\n" +
+                startStr += $"[ {count,-2}] {iceCream.Option,-15}{"$" + iceCream.CalculatePrice(),-10}\n" +
                     $" - {iceCream.Scoops} scoops\n" +
                     $"{toppingStr}{flavourStr}\n";
                 count++;
             }
-            startStr += "====================\n" +
-                $"Total: ${this.CalculateTotal()}";
+            startStr += "==========================\n" +
+                        $"Total: ${this.CalculateTotal()}\n" +
+                       $"==========================";
             return startStr;
         }
     }
@@ -930,7 +1000,7 @@ namespace IceCreamShop
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return new string[] { };
+                return Array.Empty<string>();
             }
         }
     }
