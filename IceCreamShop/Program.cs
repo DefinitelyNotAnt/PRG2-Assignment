@@ -76,7 +76,11 @@ namespace IceCreamShop{
                     }
                     Console.WriteLine("Enter Customer Number : ");
                     int customer = Convert.ToInt32(Console.ReadLine());
-                    string[] datalist = FullData[customer-1].Split(",");
+                    foreach(string s in FullData)
+                    {
+                        Console.WriteLine(s);
+                    }
+                    string[] datalist = FullData[customer].Split(",");
                     string name = datalist[0];
                     int MemberID = Convert.ToInt32(datalist[1]);
                     DateTime DOB = Convert.ToDateTime(datalist[2]);
